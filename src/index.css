@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+:root {
+  --text-primary: #1e0700;
+  --text-secondary: #6a7282;
+}
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --font-tan: 'TAN-PEARL', 'serif';
+  --color-textPrimary: var(--text-primary);
+  --color-textSecondary: var(--text-secondary);
+}
+
+@utility container {
+  @apply mx-auto max-w-[1920px] p-4;
+}
+
+body {
+  background-color: #fff;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.home-main {
+  font-family: 'Poppins', sans-serif;
+  background-position: 20% 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-size: 18px;
+}
+
+.section-title {
+  font-size: 48px;
+  font-family: 'TAN-PEARL', 'serif';
+  margin-bottom: 1.5rem;
+}
+
+.main-section {
+  margin-top: 70px;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.whatever-art {
+  width: 100vw;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  margin-bottom: 50px;
+  position: relative;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+    url('./assets/images/whatever.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (width < 1000px) {
+  .home-main {
+    background-position: 30% 10%;
+  }
+  .whatever-art {
+    aspect-ratio: 3/4;
+  }
+}
