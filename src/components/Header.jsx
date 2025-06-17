@@ -1,15 +1,55 @@
 import searchImg from '../assets/images/search.png';
 import cartImg from '../assets/images/cart.png';
 import { useEffect, useState } from 'react';
+import LinkItem from './LinkItem';
 
-const links = [
-  { path: '', title: 'Shop' },
-  { path: '', title: 'Best Sellers' },
-  { path: '', title: 'Gift Sets' },
-  { path: '', title: 'Limited Edition' },
-  { path: '', title: 'About' },
-  { path: '', title: 'Contact' },
-];
+const linklists = {
+  'main-menu': {
+    id: 'menu_001',
+    title: 'Main Menu',
+    handle: 'main-menu',
+    links: [
+      {
+        title: 'Home',
+        url: '/',
+      },
+      {
+        title: 'Shop',
+        url: '/collections/all',
+        links: [
+          {
+            title: 'Best Sellers',
+            url: '/collections/best-sellers-stock',
+          },
+          {
+            title: 'One of One',
+            url: '/collections/one-of-one-pieces',
+            links: [
+              {
+                title: 'Jackets',
+                url: '/collections/one-of-one-pieces/jackets',
+              },
+              {
+                title: 'Tees',
+                url: '/collections/one-of-one-pieces/tees',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: 'About',
+        url: '/pages/about',
+      },
+      {
+        title: 'Contact',
+        url: '/pages/contact',
+      },
+    ],
+  },
+};
+
+const { links: linksItems } = linklists['main-menu'];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +68,7 @@ const Header = () => {
 
   return (
     <header
-      className={`${isScrolled ? 'text-textPrimary bg-white' : 'bg-transparent text-white'} fixed top-0 left-0 z-50 flex h-15 w-full items-center justify-between px-4 transition-colors duration-300`}
+      className={`${isScrolled ? 'text-textPrimary bg-white' : 'bg-transparent text-white'} fixed top-0 left-0 z-50 flex h-15 w-full items-center justify-between px-4 shadow-md transition-colors duration-300`}
     >
       <div className="block lg:hidden">☰</div>
 
@@ -37,15 +77,11 @@ const Header = () => {
       </p>
 
       <div className="flex h-full items-center justify-between gap-5 lg:min-w-1/2">
-        <ul className="hidden h-full items-center gap-3 text-lg lg:flex">
-          {links.map(({ title }) => (
-            <li key={title} className="h-full">
-              <a className="flex h-full items-center px-3" href="#">
-                {title}
-              </a>
-            </li>
+        <div className="hidden h-full items-center gap-3 text-lg lg:flex">
+          {linksItems.map((linkItem) => (
+            <LinkItem key={linkItem.title} linkItem={linkItem} />
           ))}
-        </ul>
+        </div>
 
         <div className="flex items-center gap-1">
           <div className="p-2">

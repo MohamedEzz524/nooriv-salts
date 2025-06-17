@@ -7,7 +7,7 @@ const WhateverArtItem = ({ item }) => {
         <img src={icon} alt={title} className="object-contain" />
       </div>
 
-      <h3 className="font-tan text-textPrimary text-xl lg:text-[28px]">
+      <h3 className="font-tan text-textPrimary mb-3 text-xl lg:text-[28px]">
         {title}
       </h3>
 

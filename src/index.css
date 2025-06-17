@@ -51,9 +51,6 @@ body {
   overflow: hidden;
   margin-bottom: 50px;
   position: relative;
-  background-image:
-    linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
-    url('./assets/images/whatever.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

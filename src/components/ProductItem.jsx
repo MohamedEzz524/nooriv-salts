@@ -1,4 +1,4 @@
-const ProductItem = ({ product, basis }) => {
+const ProductItem = ({ product, large = false }) => {
   const { title, price, image, collectionName, comparePrice } = product;
 
   const isDiscounted = comparePrice ? comparePrice > price : false;
@@ -8,7 +8,7 @@ const ProductItem = ({ product, basis }) => {
 
   return (
     <div
-      className={`text-textPrimary relative flex flex-col gap-2.5 text-xl ${basis}`}
+      className={`text-textPrimary relative flex flex-col gap-2.5 text-xl ${large ? 'basis-full lg:basis-[calc(50%-1rem)]' : 'basis-[calc(50%-1rem)] lg:basis-[calc(25%-1rem)]'}`}
     >
       {isDiscounted && (
         <div className="absolute top-2 right-2 rounded bg-red-500 px-2 py-1 text-xs font-bold text-white">
@@ -18,7 +18,7 @@ const ProductItem = ({ product, basis }) => {
       <img
         src={image}
         alt={title}
-        className="aspect-video object-cover lg:aspect-square"
+        className={`${large ? 'aspect-video' : 'aspect-square'} object-cover`}
       />
       <div className="flex items-center justify-between">
         <h3>{title}</h3>

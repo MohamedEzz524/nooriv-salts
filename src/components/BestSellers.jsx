@@ -8,17 +8,13 @@ const BestSellers = ({ title, desc, link, products }) => {
 
       <div className="flex w-full flex-wrap justify-between gap-4">
         {products.map((product) => (
-          <ProductItem
-            key={product.id}
-            product={product}
-            basis="basis-[calc(50%-1rem)] lg:basis-[calc(25%-1rem)]"
-          />
+          <ProductItem key={product.id} product={product} />
         ))}
       </div>
 
       <div className="mt-12.5 flex w-full lg:justify-end">
         <div className="w-full lg:w-1/2">
-          <SectionLink desc={desc} link={link} name="Shop One-Of-One Pieces" />
+          <SectionLink desc={desc} link={link} />
         </div>
       </div>
     </section>

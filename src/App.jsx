@@ -1,3 +1,4 @@
+import Footer from './components/Footer';
 import Header from './components/Header';
 import Homepage from './components/Homepage';
 import MainProducts from './components/MainProducts';
@@ -10,6 +11,7 @@ function App() {
       <Homepage />
       <MainProducts />
       <WhateverArt />
+      <Footer />
     </>
   );
 }

@@ -8,11 +8,7 @@ const OneOfOne = ({ title, desc, link, products }) => {
 
       <div className="flex w-full flex-wrap justify-between gap-4">
         {products.map((product) => (
-          <ProductItem
-            key={product.id}
-            product={product}
-            basis="basis-full lg:basis-[calc(50%-1rem)] "
-          />
+          <ProductItem key={product.id} product={product} large />
         ))}
       </div>
 
